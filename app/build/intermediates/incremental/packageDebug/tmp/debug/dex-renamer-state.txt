@@ -1,4 +1,4 @@
-#Fri Nov 13 19:32:45 ART 2026
+#Fri Nov 13 20:05:09 ART 2026
 base.0=C\:\\Users\\axelt\\OneDrive\\Documentos\\repositorio\\segundoParcial\\Jornadas\\app\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\classes.dex
 base.1=C\:\\Users\\axelt\\OneDrive\\Documentos\\repositorio\\segundoParcial\\Jornadas\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\0\\classes.dex
 base.2=C\:\\Users\\axelt\\OneDrive\\Documentos\\repositorio\\segundoParcial\\Jornadas\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\14\\classes.dex

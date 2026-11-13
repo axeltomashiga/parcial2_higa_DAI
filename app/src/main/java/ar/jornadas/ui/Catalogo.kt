@@ -13,27 +13,22 @@ import ar.jornadas.data.Charla
 
 @Composable
 fun Catalogo(model: ProgramaModel, abrir: (String) -> Unit) {
-    LaunchedEffect(Unit) { model.recargar() }
     val dia by model.dia.collectAsStateWithLifecycle()
-    var tema by remember { mutableStateOf("Todos") }
+    val tema by model.tema.collectAsStateWithLifecycle()
     val fichas by model.charlas.collectAsStateWithLifecycle()
     val aviso by model.aviso.collectAsStateWithLifecycle()
     val cargando by model.cargando.collectAsStateWithLifecycle()
     val tieneEdicion by model.tieneEdicion.collectAsStateWithLifecycle()
     Selector(listOf("Ambos días", "Día 1", "Día 2"), dia) { model.dia.value = it }
     val temas = listOf("Todos", "Android", "Datos", "Calidad")
-    Selector(temas, temas.indexOf(tema)) { tema = temas[it] }
+    Selector(temas, temas.indexOf(tema)) { model.tema.value = temas[it] }
     TextButton(onClick = model::recargar) { Text("Actualizar") }
     if (cargando) LinearProgressIndicator(Modifier.fillMaxWidth())
-    if (!tieneEdicion) {
-        if (aviso.isNotEmpty()) {
-            Text(aviso)
-            OutlinedButton(onClick = model::recargar) { Text("Reintentar") }
-        }
-    } else {
-        if (aviso.isNotEmpty()) {
-            Text(aviso)
-        }
+    if (aviso.isNotEmpty()) {
+        Text(aviso)
+        OutlinedButton(onClick = model::recargar) { Text("Reintentar") }
+    }
+    if (tieneEdicion) {
         if (fichas.isEmpty()) {
             Text("sin charlas programadas")
         } else {
